@@ -28,15 +28,15 @@ API Endpoints Details
 
 1.User Endpoints:
 
-GET /users/findByEmailId
+1.1 GET /users/findByEmailId
 
 Description: Retrieve a user by email ID.
 Request Method: GET
 Parameters:
 email: The email ID of the user to retrieve.
-:
 
-POST /users/create
+
+1.2 POST /users/create
 Description: Create a new user.
 Request Method: POST
 Request Body:
@@ -50,7 +50,7 @@ Request Body:
 
 2. Review Endpoints:
 
-POST /reviews/employee-review
+2.1 POST /reviews/employee-review
 Description: Submit a review for another user.
 Request Method: POST
 Request Body:
@@ -61,7 +61,7 @@ Request Body:
     "discription" : "Review Comments"    
 }
 
-GET /reviews/retrieve-all-reviews
+2.2 GET /reviews/retrieve-all-reviews
 Description: Retrieve all reviews.
 Request Method: GET
 
