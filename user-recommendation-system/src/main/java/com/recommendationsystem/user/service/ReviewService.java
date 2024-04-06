@@ -23,11 +23,28 @@ public class ReviewService {
 	@Autowired
 	private UserService userService;
 
+	/**
+	 * Retrieves all reviews from the database.
+	 * 
+	 * @return List of all reviews.
+	 */
 	public List<Review> getAllReviews() {
 		return reviewRepository.findAll();
 	}
 
-
+	/**
+	 * Checks the relevance of a user recommendation based on certain criteria and
+	 * saves the review in the database.
+	 * 
+	 * @param review The review request payload.
+	 * @return The recommendation type.
+	 * @throws ReviewAlreadyExistException If a review for the same user already
+	 *                                     exists.
+	 * @throws SelfReviewException         If the reviewer and reviewee are the same
+	 *                                     user.
+	 * @throws UserNotFoundException       If either the reviewer or reviewee is not
+	 *                                     found.
+	 */
 	public RecommendationTypes checkUserRecommendation(ReviewReqPayload review) {
 		if (review.getRevieweeEmail().equalsIgnoreCase(review.getReviewerEmail())) {
 			throw new ReviewAlreadyExistException();

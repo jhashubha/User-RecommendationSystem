@@ -17,11 +17,23 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	/**
+	 * Endpoint to find a user by email ID.
+	 * 
+	 * @param email The email ID of the user to find.
+	 * @return The user with the specified email ID.
+	 */
 	@GetMapping("/findByEmailId")
 	public User getUserByEmailId(@RequestParam String email) {
 		return userService.getUserByEmailId(email);
 	}
 
+	/**
+	 * Endpoint to create a new user.
+	 * 
+	 * @param user The user object to create.
+	 * @return The created user object.
+	 */
 	@PostMapping("/create")
 	public User createUser(@RequestBody User user) {
 		return userService.createUser(user);
